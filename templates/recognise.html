@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/recommend.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <title>Music Recognize</title>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="title">
+            <p align="center"><b>Music Recognize</b></p>
+        </div>
+        <div class="music">
+            <div class="names"><h3><b>{{list[0][0]}}</b></h3></div>
+            <div class="cossim"><p>Similarity Score: {{list[0][1]}}</p></div>
+            <div class="track">
+                <audio controls>
+                    <source src="{{ url_for('static', filename='Dataset_Songs/' + list[0][0]) }}" type="audio/mpeg">
+                </audio>
+                <div id="waveform"></div>
+            </div>
+        </div>
+        <br>
+        <div class="music">
+            <div class="names"><h3><b>{{list[1][0]}}</b></h3></div>
+            <div class="cossim"><p>Similarity Score: {{list[1][1]}}</p></div>
+            <div class="track">
+                <audio controls>
+                    <source src="{{ url_for('static', filename='Dataset_Songs/' + list[1][0]) }}" type="audio/mpeg">
+                </audio>
+                <div id="waveform2"></div>
+            </div>
+        </div>
+        <br>
+        <div class="music">
+            <div class="names"><h3><b>{{list[2][0]}}</b></h3></div>
+            <div class="cossim"><p>Similarity Score: {{list[2][1]}}</p></div>
+            <div class="track">
+                <audio controls>
+                    <source src="{{ url_for('static', filename='Dataset_Songs/' + list[2][0]) }}" type="audio/mpeg">
+                </audio>
+                <div id="waveform3"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+</body>
+</html>

@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+}
+
+.title p { 
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    font-size: 40px;
+    color: #ADD8E6;
+    margin-bottom: 15px;
+}
+
+.music {
+    margin: auto;
+    height: 15%;
+    width: 850px;
+    padding: 10px;
+    box-shadow: 0 0 20px rgba(red, 0, 0, 0.4);
+    background: #ffffff;
+    color: #555;
+    border-radius: 8px;
+}
+
+.track, .track2, .track3 {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.track img {
+    height: 75px;
+    width: 75px;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.track div {
+    flex: 1
+}
+
+@media (min-width: 1024px) {
+
+    .title p { 
+        font-size: 45px;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+
+    .title p {
+        font-size: 39px;
+    }
+
+    .music {
+        width: 700px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .title p {
+        font-size: 35px;
+    }
+
+    .music {
+        width: 470px;
+    }
+}
+
+@media (min-width: 250px) and (max-width: 480px) {
+
+    .title p {
+        font-size: 30px;
+    }
+
+    .music {
+        width: 230px;
+        height: 12%;
+    }
+
+    .track img {
+        height: 35px;
+        width: 35px;
+        margin-right: 20px;
+    }
+}
+
+@media (max-width: 249px) {
+    
+    .title p {
+        font-size: 25px;
+    }
+
+    .music {
+        width: 180px;
+        height: 11%;
+    }
+
+    .names h3 {
+        font-size: 15px;
+    }
+
+    .cossim p {
+        font-size: 10px;
+    }
+
+    .track img {
+        height: 25px;
+        width: 25px;
+        margin-right: 15px;
+    }
+} 
