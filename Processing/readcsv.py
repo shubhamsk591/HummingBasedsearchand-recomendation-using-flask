@@ -27,9 +27,9 @@ def fingerprintlist(s):
         y1.append(y)
     return x1,y1
 def get_value_from_index(index,csvfiler): 
-    csvfile=pd.read_csv(csvfiler)
-    s=np.asarray(csvfile)
-    return s[index][1]  
+   df = pd.read_csv(csvfiler)
+   # return the value from the specified index 
+   return df.iloc[index,1] 
 
 def readlistfe(a):
     n=len(a)
