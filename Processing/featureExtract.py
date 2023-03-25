@@ -9,7 +9,7 @@ def extract_features(file_name):
     # Load the audio file
     audio, sample_rate = librosa.load(file_name)
     val=[]
-    #Extract mfcc feature
+    #Extract mfcc feature 20 features
     mfcc=librosa.feature.mfcc(y=audio, sr=sample_rate)
     for x in range(len(mfcc)):
         v=normalized(mfcc[x])
@@ -42,4 +42,5 @@ def extract_features(file_name):
     tempo,beat = librosa.beat.beat_track(y=audio,sr=sample_rate)
     val.append(np.mean(beat))
     val.append(tempo)
+    #return list
     return val

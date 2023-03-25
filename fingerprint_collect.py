@@ -6,7 +6,7 @@ song_files = os.listdir('static/Dataset_Songs/')
 
 # Initialize the database
 features_db = pd.DataFrame()
-
+song_db=pd.DataFrame()
 # Iterate over all the songs and extract the features
 for file in song_files:
    print(file)
@@ -15,6 +15,8 @@ for file in song_files:
    n=len(features[0])
    val=[]
    val.append(file)
+   df1=pd.DataFrame([val])
+   song_db=song_db.append(df1,ignore_index=True)
    val.append(n)
 
    for i in range(n):
@@ -26,3 +28,4 @@ for file in song_files:
    
    features_db = features_db.append(df, ignore_index = True)
 features_db.to_csv('fingerprint_db.csv')
+song_db.to_csv('songs_db.csv')
