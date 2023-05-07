@@ -1,6 +1,6 @@
 import os
 import Resample
-song_files = os.listdir('Song_database/')
+song_files = os.listdir('E:\Songs/')
 for file in song_files:
-    file_name="Song_database/"+file
+    file_name="E:\Songs/"+file
     Resample.resample(file_name,file)

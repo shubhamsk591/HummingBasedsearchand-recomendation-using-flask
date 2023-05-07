@@ -1,7 +1,9 @@
 const startRecordingBtn = document.getElementById("recordButton");
 const stopRecordingBtn = document.getElementById("stopButton");
 const pauseButton = document.getElementById("pauseButton");
-
+var form1=document.getElementById("form1");
+var form2=document.getElementById("form2");
+var waveform1=document.getElementById("waveform1");
 //add events to those 2 buttons
 let audioCtx;
 let recorder;
@@ -14,16 +16,28 @@ navigator.mediaDevices
     audioCtx = new AudioContext();
     const microphone = audioCtx.createMediaStreamSource(stream);
     // Create a new recorder
-    recorder = new Recorder(microphone, {numChannels: 1});
+    recorder = new Recorder(microphone, {sampleRate: 11025,numChannels: 1});
     startRecordingBtn.addEventListener("click", startRecording);
     stopRecordingBtn.addEventListener("click", stopRecording);
     pauseButton.addEventListener("click", pauseRecording);
-    
+    wavesurfer()
   })
   .catch((error) => {
     console.error("Error getting audio stream:", error);
   });
+  let wavesurfer1;
 
+  function wavesurfer(){
+    wavesurfer1 = WaveSurfer.create({
+      container: "#waveform1",
+      waveColor: "violet",
+      progressColor: "purple",
+      height: 128,
+      barWidth: 3,
+      cursorWidth: 1,
+      cursorColor: "#333",
+      responsive: true
+    });}
   function startRecording() {
     // Start recording
    
@@ -53,6 +67,9 @@ function stopRecording() {
   
   pauseButton.setAttribute("disabled", true);
   recorder.stop();
+  form1.style.display="inline";
+  form2.style.display="block";
+  
   recorder.exportWAV(blob => {
     var url = URL.createObjectURL(blob);
     var au = document.createElement('audio');
@@ -72,7 +89,10 @@ function create(url,au,li,link) {
     //add controls to the <audio> element
     au.controls = true;
     au.src = url;
-
+    waveform1.style.display="block";
+    wavesurfer1.load(url);
+    au.addEventListener("play",function(){wavesurfer1.playPause();});
+    au.addEventListener("pause",function(){wavesurfer1.pause();});
     //save to disk link
     link.href = url;
     link.download = filename+".wav"; //download forces the browser to download the file using the  filename

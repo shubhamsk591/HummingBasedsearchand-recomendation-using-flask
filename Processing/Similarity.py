@@ -8,45 +8,23 @@ def euclidien_distance(x,x1,y,y1):
         sum = math.sqrt(math.pow(x[i] - x1[i], 2) + math.pow(y[i] - y1[i], 2))
         sum=sum+sum
     return sum/n
-import math 
+
 def cosine(x,x1,y,y1):
   x=np.array(x)
   x1=np.array(x1)
   y=np.array(y)
   y1=np.array(y1)
-  # calculate the dot product between two vectors
-  dot_product = 0
-  for i in range(len(x)):
-     dot_product += x[i]*x1[i]
-  for i in range(len(y)):
-     dot_product += y[i]*y1[i]
+   # calculate the dot product between two vectors
+  dot_product = np.sum(x*x1) + np.sum(y*y1)
   
-   # calculate the magnitude of x
-  sum_of_squaresx=np.sum(np.square(x))
-  sum_of_squaresy=np.sum(np.square(y))
-  sum1 = math.fsum([sum_of_squaresx, sum_of_squaresy])
-  if(sum1>0):
-     magnitude_x = math.sqrt(sum1)
-  else:
-     sum1=sum1*-1
-     magnitude_x = math.sqrt(sum1)
-
+  # calculate the magnitude of x
+  magnitude_x = np.sqrt(np.sum(np.square(x,dtype=np.longdouble)) + np.sum(np.square(y,dtype=np.longdouble)))
   
-   # calculate the magnitude of y
-  sum_of_squaresx=np.sum(np.square(x1))
-  sum_of_squaresy=np.sum(np.square(y1))
-  sum1 = math.fsum([sum_of_squaresx,sum_of_squaresy])
-  if(sum1>0):
-     magnitude_y = math.sqrt(sum1)
-  else:
-     sum1=sum1*-1
-     magnitude_y = math.sqrt(sum1)
+  # calculate the magnitude of y
+  magnitude_y = np.sqrt(np.sum(np.square(x1,dtype=np.longdouble)) + np.sum(np.square(y1,dtype=np.longdouble)))
   
-  
-   # calculate the cosine distance
+  # calculate the cosine distance
   cosine_distance = dot_product / (magnitude_x * magnitude_y)
-  if cosine_distance > 1:
-      cosine_distance = 1.0
   
   return cosine_distance
 def cosine_Similarity(x,y):

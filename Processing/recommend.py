@@ -18,6 +18,6 @@ def result(fp):
         output.append([j,resultcs[j]])
     output.sort(key = lambda x : x[1],reverse=True)
     for i in range(len(output)):
-        result.append([rcsv.get_value_from_index(output[i][0],"features_db.csv"),output[i][1]])
+        result.append([rcsv.get_value_from_index1(output[i][0]),output[i][1]])
 
     return result

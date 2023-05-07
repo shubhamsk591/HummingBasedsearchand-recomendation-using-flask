@@ -1,0 +1,31 @@
+Feature Collect time
+start :-Sun Mar 19 08:38:26 2023
+Complete:-Sun Mar 19 08:38:26 2023
+write:-Sun Mar 19 08:38:26 2023
+
+Fingerprint Collect
+
+start :-Sun Mar 19 11:31:35 2023
+Complete:-Sun Mar 19 Sun Mar 19 11:40:35 2023
+write:Sun Mar 19 11:40:56 2023
+Upload
+start:-Sun Mar 19 12:09:57 2023
+Finish:-Sun Mar 19 12:09:57 2023
+
+Search
+Start:-Sun Mar 19 12:09:53
+Fingerprint:-Sun Mar 19 12:09:57 2023
+final:-Sun Mar 19 12:51:50 2023
+
+import numpy
+import scipy 		#for filters
+import matplotlib.mlab	#for spectrogram
+import librosa		#for songs
+import pandas
+import ast		#for the ast.literal_eval to get python value
+import csv
+from pydub import AudioSegment
+import os
+import math
+from numpy import linalg
+import time
