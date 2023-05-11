@@ -3,7 +3,7 @@ import numpy as np
 import time
 import Processing.readcsv as rcsv
 import Processing.fingerprint as fp
-import Processing.Window as window
+
 import Processing.Similarity as sim
 def result(fp):
     with open('fingerprint_db.csv', 'r') as csvFile:
@@ -17,13 +17,13 @@ def result(fp):
     print("\nAsctime function output:", System_time1)
     print(len(s))
     for i in range(len(s)):
-        v=s[i]
-        cosin=sim.cosine_Similarity(fp,v)
-        resultcs.append([i,cosin])
+        cosin=sim.cosine_Similarity(s[i],fp)
+        dist=sim.equclidean(s[i],fp)
+        resultcs.append([i,cosin,dist])
     resultcs.sort(key = lambda x : x[1],reverse=True)
     
     for i in range(len(resultcs)):
-        result.append([rcsv.get_value_from_index(resultcs[i][0]),resultcs[i][1]])
+        result.append([rcsv.get_value_from_index(resultcs[i][0]),round(resultcs[i][1],2),round(resultcs[i][2],2)])
     return result
     
     

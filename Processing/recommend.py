@@ -9,15 +9,18 @@ def result(fp):
     s=rcsv.readlistfe(reader)   
     t=rcsv.featurelist(s)
     resultcs=[]
+    resulteq=[]
     for i in range(len(t)):
-        resultcs.append(sim.cosine_Similarity(fp,t[i]))
+        resultcs.append(sim.cosine_Similarity(t[i],fp))
+        resulteq.append(sim.equclidean(t[i],fp))
+
     output=[]
     result=[]
     print("Using Cosine Similarity")
     for j in range(len(resultcs)):
-        output.append([j,resultcs[j]])
+        output.append([j,resultcs[j],resulteq[j]])
     output.sort(key = lambda x : x[1],reverse=True)
     for i in range(len(output)):
-        result.append([rcsv.get_value_from_index1(output[i][0]),output[i][1]])
+        result.append([rcsv.get_value_from_index1(output[i][0]),round(output[i][1],2),round(output[i][2],2)])
 
     return result

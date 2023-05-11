@@ -45,7 +45,7 @@ def recognise():
     System_time1 = time.asctime(time.localtime(time.time()))
     print("\nAsctime function output:", System_time1)
     for i in range(len(list)):
-        print(i+1," ",list[i][0]," ",round(list[i][1],2))
+        print(i+1," ",list[i][0]," ",list[i][1]," ",list[i][2])
     return render_template('recognise.html', **locals()) 
 
 @app.route('/redirect')
@@ -59,7 +59,7 @@ def recommend():
     System_time1 = time.asctime(time.localtime(time.time()))
     print("\nAsctime function output:", System_time1)
     for i in range(len(list)):
-        print(i+1," ",list[i][0]," ",round(list[i][1],2))
+        print(i+1," ",list[i][0]," ",list[i][1]," ",list[i][2])
     return render_template('recommendation.html', **locals()) 
 @app.route("/about")
 def about():
